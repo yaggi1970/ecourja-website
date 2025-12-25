@@ -1,0 +1,35 @@
+<header class="main-header bg-light shadow-sm py-3">
+    <div class="header-content container d-flex justify-content-between align-items-center">
+        <div class="logo d-flex align-items-center">
+            <a href="/">
+                <img src="/images/ecourja.jpg" alt="<%= companyName %>" class="img-fluid" style="max-height: 50px;">
+            </a>
+            <div class="logo-text ms-3">
+                <a href="/" class="text-decoration-none">
+                    <h1 class="h3 mb-0 gradient-heading" style="font-size:1.7rem; font-weight: 1000; letter-spacing:1.2px; text-transform:uppercase; color:#808000;">Ecourja Innovations</h1>
+                </a>
+                <p class="fw-bold" style="font-size:1rem; color:#808000; letter-spacing:0.7px; margin-top:2px; font-weight:900; text-shadow:0 2px 8px #e0eafc; text-transform:uppercase;">Smart Systems for a Cleaner Tomorrow</p>
+            </div>
+        </div>
+        <nav class="d-flex gap-3">
+            <a href="#about" class="text-dark text-decoration-none">About Us</a>
+            <a href="#products" class="text-dark text-decoration-none">Product</a>
+            <a href="#technology" class="text-dark text-decoration-none">Technology</a>
+            <a href="#services" class="text-dark text-decoration-none">Services</a>
+            <div class="dropdown">
+                <a href="#calculation" class="text-dark text-decoration-none dropdown-toggle" data-bs-toggle="dropdown">Calculators</a>
+                <div class="dropdown-menu">
+                    <a href="#solar-calculator" class="dropdown-item">Solar Calculator</a>
+                    <a href="#wind-calculator" class="dropdown-item">Wind Calculator</a>
+                </div>
+            </div>
+            <a href="#contact" class="text-dark text-decoration-none">Contact</a>
+            <% if (typeof user != 'undefined' && user) { %>
+                <span class="text-muted">Hello, <%= user.username %></span>
+                <a href="/logout" class="btn btn-danger">Logout</a>
+            <% } else { %>
+                <a href="/login" class="btn btn-primary">Login</a>
+            <% } %>
+        </nav>
+    </div>
+</header>

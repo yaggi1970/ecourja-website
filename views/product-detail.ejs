@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="<%= product.name %> - <%= product.description %>">
+    <title><%= product.name %> | <%= companyName %></title>
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+</head>
+<body>
+    <%- include('partials/header') %>
+
+    <section class="product-detail py-5 mt-5">
+        <div class="container">
+            <nav aria-label="breadcrumb" class="mb-4">
+                <ol class="breadcrumb bg-light p-3 rounded">
+                    <li class="breadcrumb-item"><a href="/" class="text-primary"><i class="fas fa-home"></i> Home</a></li>
+                    <li class="breadcrumb-item"><a href="/#products" class="text-primary">Products</a></li>
+                    <li class="breadcrumb-item active" aria-current="page"><%= product.name %></li>
+                </ol>
+            </nav>
+
+            <div class="row g-4">
+                <div class="col-md-6">
+                    <div class="product-image-container bg-light rounded p-4">
+                        <img src="<%= product.image %>" alt="<%= product.name %>" class="img-fluid rounded"
+                             onerror="this.src='https://placehold.co/800x600/f8f9fa/495057/png?text=<%= encodeURIComponent(product.name) %>'">
+                    </div>
+                </div>
+                <div class="col-md-6">
+                    <div class="product-info">
+                        <span class="badge <%= product.badgeClass %> mb-2"><%= product.category %></span>
+                        <h1 class="h2 mb-3"><%= product.name %></h1>
+                        <p class="lead mb-4"><%= product.description %></p>
+                        <div class="price mb-4">
+                            <h3 class="h4">Starting from</h3>
+                            <span class="h2 text-primary"><%= product.price %></span>
+                        </div>
+                        <div class="cta-buttons">
+                            <a href="#contact" class="btn btn-primary btn-lg me-3">Request Quote</a>
+                            <a href="#calculation" class="btn btn-outline-primary btn-lg me-3">Calculate Savings</a>
+                            <a href="/" class="btn btn-outline-secondary btn-lg">Back to Home</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row mt-5">
+                <div class="col-md-8">
+                    <div class="product-description mb-5">
+                        <h2 class="h3 mb-4">Product Overview</h2>
+                        <p class="mb-4"><%= product.longDescription %></p>
+                        
+                        <h3 class="h4 mb-3">Key Features</h3>
+                        <ul class="feature-list list-unstyled">
+                            <% product.features.forEach(feature => { %>
+                            <li class="mb-2">
+                                <i class="fas fa-check-circle text-success me-2"></i>
+                                <%= feature %>
+                            </li>
+                            <% }); %>
+                        </ul>
+                    </div>
+
+                    <div class="applications mb-5">
+                        <h3 class="h4 mb-3">Ideal Applications</h3>
+                        <div class="row g-3">
+                            <% product.applications.forEach(app => { %>
+                            <div class="col-md-6">
+                                <div class="application-card p-3 bg-light rounded">
+                                    <i class="fas fa-building text-primary me-2"></i>
+                                    <%= app %>
+                                </div>
+                            </div>
+                            <% }); %>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4">
+                    <div class="specs-card bg-light rounded p-4">
+                        <h3 class="h4 mb-4">Technical Specifications</h3>
+                        <% Object.entries(product.specs).forEach(([key, value]) => { %>
+                        <div class="spec-row d-flex justify-content-between mb-3">
+                            <span class="text-muted"><%= key.charAt(0).toUpperCase() + key.slice(1) %></span>
+                            <span class="fw-bold"><%= value %></span>
+                        </div>
+                        <% }); %>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <%- include('partials/footer') %>
+
+    <style>
+        .product-detail {
+            min-height: 80vh;
+        }
+        .application-card {
+            transition: transform 0.2s;
+        }
+        .application-card:hover {
+            transform: translateY(-2px);
+        }
+        .feature-list li {
+            transition: transform 0.2s;
+        }
+        .feature-list li:hover {
+            transform: translateX(5px);
+        }
+    </style>
+</body>
+</html>

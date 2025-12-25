@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Ecourja Innovations: Calculators and detailed pages">
+    <title>Ecourja Innovations — Calculators</title>
+    <link rel="icon" href="favicon.ico" type="image/x-icon">
+    <link rel="canonical" href="https://www.ecourja.com/" />
+    <link rel="stylesheet" href="/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css">
+</head>
+<body>
+    <%- include('partials/header') %>
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Power Your World Sustainably</h1>
+            <p>Leading the way in renewable energy solutions</p>
+            <a href="#calculation" class="cta-button">Calculate Your Savings</a>
+        </div>
+    </section>
+
+    <section id="calculation" class="section-container">
+        <div class="content-wrapper">
+            <div id="solar-calculator" class="calculator-section">
+                <h3>Solar Energy Calculator</h3>
+                <div class="calculator">
+                    <div class="calc-input">
+                        <label for="monthlyBill">
+                            Monthly Electricity Bill (₹):
+                            <input type="number" id="monthlyBill" name="monthlyBill" min="0" placeholder="Enter amount">
+                        </label>
+                        <label for="sunlightHours">
+                            Average Daily Sunlight Hours:
+                            <input type="number" id="sunlightHours" name ="sunlightHours" min="0" max="12" placeholder="Enter hours">
+                        </label>
+                    </div>
+                    <button id="calculateSolarBtn" class="calc-button">Calculate Savings</button>
+                    <div id="solarResults" class="results-grid">
+                        <div class="result-item">
+                            <h4>Annual Savings</h4>
+                            <p id="annualSavings">₹0</p>
+                        </div>
+                        <div class="result-item">
+                            <h4>CO2 Reduction (tons/year)</h4>
+                            <p id="carbonReduction">0</p>
+                        </div>
+                        <div class="result-item">
+                            <h4>ROI (years)</h4>
+                            <p id="roi">0</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="wind-calculator" class="calculator-section">
+                <h3>Wind Energy Calculator</h3>
+                <div class="calculator">
+                    <div class="calc-input">
+                        <label for="avgWindSpeed">
+                            Average Wind Speed (km/h):
+                            <input type="number" id="avgWindSpeed" name="avgWindSpeed" min="0" placeholder="Enter speed">
+                        </label>
+                        <label for="propertySize">
+                            Property Size (sq. meters):
+                            <input type="number" id="propertySize" name="propertySize" min="0" placeholder="Enter size">
+                        </label>
+                    </div>
+                    <button id="calculateWindBtn" class="calc-button">Calculate Potential</button>
+                    <div id="windResults" class="results-grid">
+                        <div class="result-item">
+                            <h4>Annual Energy (kWh)</h4>
+                            <p id="windEnergy">0</p>
+                        </div>
+                        <div class="result-item">
+                            <h4>Annual Savings</h4>
+                            <p id="windSavings">₹0</p>
+                        </div>
+                        <div class="result-item">
+                            <h4>Payback Period (years)</h4>
+                            <p id="windRoi">0</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section id="contact" class="section-container">
+        <div class="content-wrapper">
+            <h2>Contact Us</h2>
+            <div class="contact-grid">
+                  <div class="contact-form">
+                      <h3>Send us a message</h3>
+                      <form id="contactForm" action="#" method="post">
+                          <label for="name">Name:</label>
+                          <input type="text" id="name" name="name" required>
+
+                          <label for="email">Email:</label>
+                          <input type="email" id="email" name="email" required>
+
+                          <label for="message">Message:</label>
+                          <textarea id="message" name="message" rows="4" required></textarea>
+
+                          <button type="submit">Send Message</button>
+                      </form>
+                  </div>
+                <div class="contact-info">
+                    <div class="contact-item">
+                        <i class="fas fa-envelope"></i>
+                        <p>Email: <a href="mailto:info@ecourja.com">info@ecourja.com</a></p>
+                    </div>
+                    <div class="contact-item">
+                        <i class="fas fa-phone"></i>
+                        <p>Phone: +91 95459 06844</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="/script.js"></script>
+    <%- include('partials/footer') %>
+</body>
+</html>

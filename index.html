@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ecourja Home</title>
+    <link rel="stylesheet" href="/styles.css">
+</head>
+<body>
+    <header>
+        <img src="/ecourja.jpg" alt="Ecourja Logo" width="50">
+        <h1>Home</h1>
+    </header>
+
+    <div id="auth-links">
+        <!-- This content will be dynamically replaced by server -->
+    </div>
+
+    <script>
+        // Simple script to show login/logout links based on authentication
+        fetch('/auth/status').then(res => res.json()).then(data => {
+            const container = document.getElementById('auth-links');
+            if (data.authenticated) {
+                container.innerHTML = `<p>Hello, ${data.user.username}</p><a href="/logout">Logout</a>`;
+            } else {
+                container.innerHTML = '<a href="/login">Login</a><br><a href="/register">Register</a>';
+            }
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,66 @@
+/* Admin styles */
+.navbar {
+    margin-bottom: 2rem;
+}
+
+.table-responsive {
+    margin-top: 1rem;
+}
+
+.badge {
+    text-transform: capitalize;
+}
+
+.modal-lg {
+    max-width: 800px;
+}
+
+/* Dashboard cards */
+.stats-card {
+    background: #fff;
+    border-radius: 8px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+    transition: transform 0.2s;
+}
+
+.stats-card:hover {
+    transform: translateY(-5px);
+}
+
+.stats-card h3 {
+    margin: 0;
+    color: #333;
+}
+
+.stats-card .number {
+    font-size: 2.5rem;
+    font-weight: bold;
+    color: #007bff;
+    margin: 1rem 0;
+}
+
+/* Table enhancements */
+.table th {
+    background-color: #f8f9fa;
+}
+
+.table td {
+    vertical-align: middle;
+}
+
+/* Form styling */
+.form-label {
+    font-weight: 500;
+}
+
+.required::after {
+    content: '*';
+    color: red;
+    margin-left: 4px;
+}
+
+/* Button spacing */
+.btn + .btn {
+    margin-left: 0.5rem;
+}
